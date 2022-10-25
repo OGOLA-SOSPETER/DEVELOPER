@@ -38,15 +38,15 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //DeveloperBackground("Back")
                     BackgroundImage()
-                    DeveloperTitle("...MY SOCIAL MEDIA HANDLES...")
-                    DeveloperName("OGOLA SOSPETER")
+                    DeveloperTitle(getString(R.string.Title))
+                    DeveloperName(getString(R.string.Developername))
                     DeveloperImage("OGOLA SOSPETER")
                     DeveloperImage1("Mycalls")
                     DeveloperImage2("Myemail")
                     DeveloperImage3("Mytwitter")
                     DeveloperContacts("0795398253")
-                    DeveloperEmails("ogolasospeter62@gmail.com" )
-                    DeveloperTwitter("OKONGO OGOLA")
+                    DeveloperEmails(getString(R.string.developeremail) )
+                    DeveloperTwitter(getString(R.string.twitteraccount))
 
 
                     //ogolasospeter62@gmail.com
