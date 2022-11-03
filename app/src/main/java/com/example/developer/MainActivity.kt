@@ -1,5 +1,6 @@
 package com.example.developer
 
+import android.graphics.drawable.shapes.RectShape
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,6 +8,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -16,6 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Green
 import androidx.compose.ui.graphics.Color.Companion.White
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -37,10 +42,11 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //DeveloperBackground("Back")
                     BackgroundImage()
+                    ImageInBackground()
                     DeveloperTitle(getString(R.string.Title))
                     DeveloperName(getString(R.string.Developername))
-                    DeveloperImage("OGOLA SOSPETER")
-                    DeveloperImage1("Mycalls")
+                    DeveloperImage()
+                    DeveloperImage1()
                     DeveloperImage2("Myemail")
                     DeveloperImage3("Mytwitter")
                     DeveloperContacts("0795398253")
@@ -67,32 +73,67 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier
 
                     .padding(top = 340.dp, start = 70.dp, end = 20.dp,bottom = 100.dp)
-                    .background(color = Green)
+                    //.background(color = Green)
             )
         }
+@Composable
+fun ImageInBackground(){
 
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(20.dp)
+    ){
+    Card(
+        elevation = 4.dp,
+    )
+    {}
+        val image = painterResource(id = R.drawable.img)
+    }
+}
 
 @Composable
 fun BackgroundImage() {
-    val image0 = painterResource(R.drawable.alx)
-    Column{
-        Image(
-            painter =  image0,
-            alignment = Alignment.TopCenter,
-            contentDescription = null,
-            modifier = Modifier
-                //.fillMaxSize()
-                .padding(top = 2.dp, end = 2.dp, start = 2.dp)
-                .width(399.dp)
-                .height(290.dp),
-            //.border( width = 1.dp, color = Color.Magenta),
-            contentScale = ContentScale.Crop
+    Row( verticalAlignment = Alignment.Top,
+        horizontalArrangement = Arrangement.End) {
+        Box {
+            val image0 = painterResource(R.drawable.image)
+
+            Image(
+                painter = image0,
+                alignment = Alignment.TopCenter,
+                contentDescription = null,
+                modifier = Modifier
+                    //.fillMaxSize()
+                    .padding(start = 50.dp)
+                    .width(290.dp)
+                    //.background(Color.DarkGray,shape = RectangleShape)
+                    .border(width = 1.dp, color = Color.DarkGray)
+                    .height(290.dp),
+                //.border( width = 1.dp, color = Color.Magenta),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                "Ogola Sospeter",
+                textAlign = TextAlign.Left,
+                fontSize = 13.sp,
+                modifier = Modifier.padding(top = 190.dp, start = 170.dp),
+                color = Color.White
+            )
+        }
+        Text(
+            "An outgoing, industrious Gentleman.",
+            textAlign = TextAlign.Center,
+            fontSize = 15.sp,
+
         )
     }
 }
 
     @Composable
-    fun DeveloperImage(name: String) {
+    fun DeveloperImage() {
         val image = painterResource(R.drawable.email)
         Box {
             Image(
@@ -109,7 +150,7 @@ fun BackgroundImage() {
         }
     }
     @Composable
-    fun DeveloperImage1(name: String) {
+    fun DeveloperImage1() {
         val image1 = painterResource(R.drawable.call)
         Box {
             Image(
@@ -221,13 +262,14 @@ fun BackgroundImage() {
             BackgroundImage()
             DeveloperTitle("...MY SOCIAL MEDIA HANDLES...")
             DeveloperName("OGOLA SOSPETER")
-            DeveloperImage("OGOLA SOSPETER")
-            DeveloperImage1("Mycalls")
+            DeveloperImage()
+            DeveloperImage1()
             DeveloperImage2("Myemail")
             DeveloperImage3("Mytwitter")
             DeveloperContacts("0795398253")
             DeveloperEmails("ogolasospeter62@gmail.com")
             DeveloperTwitter("OKONGO OGOLA")
+            ImageInBackground()
 
         }
     }
